@@ -1,27 +1,27 @@
-pipeline {
-    agent any
-    stages {
-        stage('Clean') {
-            steps {
-                    bat 'mvn clean'
-                }
-            }
-        stage('Test') {
-            steps {
-                    bat 'mvn test'
-                }
-            }
-        stage('Package') {
-            steps {
-                    bat 'mvn package'
-                }
-            }
-        stage('Consolidate Result'){
-            steps{
-                input('Do you want to capture result')
-                junit '**/target/surefire-reports/Test-*.xml'
-                archive 'target/*.jar'
-                }
-            }
-        }
-    }
+pipeline{
+	agent any
+	stages{
+		stage("Building Stage"){
+			steps{
+				bat "mvn install"
+			     	}
+		}
+		stage("Testing Stage"){
+			steps{
+				bat "mvn test"
+			     }
+		}
+		stage ("Packaging Stage"){
+			steps{
+				bat "mvn package"
+				}
+		}
+stage("Consolidate Results"){
+steps{
+input("Do you want to capture results?")
+junit '**/target/surefire-reports/TEST-*.xml'
+archive 'target/*.jar'
+}
+}
+}
+}
