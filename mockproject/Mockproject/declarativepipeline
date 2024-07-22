@@ -1,28 +1,20 @@
 pipeline {
     agent any
     stages {
-        stage('Checkout SCM') {
-            steps {
-                checkout([$class: 'GitSCM', branches: [[name: '*/main']], userRemoteConfigs: [[url: 'https://github.com/nupurvikhankar2/mockproject.git']]])
-            }
-        }
         stage('Clean') {
             steps {
-                dir('Mockproject') {  // Change this to the path where pom.xml is located
                     bat 'mvn clean'
                 }
             }
         }
         stage('Test') {
             steps {
-                dir('Mockproject') {  // Change this to the path where pom.xml is located
                     bat 'mvn test'
                 }
             }
         }
         stage('Package') {
             steps {
-                dir('Mockproject') {  // Change this to the path where pom.xml is located
                     bat 'mvn package'
                 }
             }
