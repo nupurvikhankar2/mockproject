@@ -1,0 +1,6 @@
+projectKey=com.nupur.training:Mockproject
+serverUrl=http://localhost:9000
+serverVersion=10.5.1.90531
+dashboardUrl=http://localhost:9000/dashboard?id=com.nupur.training%3AMockproject
+ceTaskId=a420ddc3-4bc1-4741-a02d-496436c9fc36
+ceTaskUrl=http://localhost:9000/api/ce/task?id=a420ddc3-4bc1-4741-a02d-496436c9fc36
