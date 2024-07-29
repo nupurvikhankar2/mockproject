@@ -12,11 +12,6 @@ pipeline{
             bat 'mvn test'
               }
         }
-    stage('deploy'){
-          steps{
-            bat 'mvn deploy'
-              }
-        }
      stage('result'){
           steps{
             input 'Do you want to capture report?'
