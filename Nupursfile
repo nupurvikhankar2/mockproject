@@ -1,0 +1,25 @@
+pipeline{
+agent any
+    stages{
+        stage('clean'){
+          steps{
+            bat 'mvn clean'
+              }
+        }
+stage('test'){
+          steps{
+            bat 'mvn test'
+              }
+        }
+stage('deploy'){
+          steps{
+            bat 'mvn deploy'
+              }
+        }
+stage('result'){
+          steps{
+            input 'Do you want to capture report'
+             junit '**/target/surefire-reports/TEST-*.xml'
+            archiveArtifacts 'target/*.jar'
+              }
+        }
